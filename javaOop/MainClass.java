@@ -26,9 +26,12 @@ public class MainClass {
 
         System.out.println();
 
-        Bicycle myBicycle1 = new Bicycle("white", 1000);
+        // 생성자를 여러개 두어서 생성과 동시에 객체의 속성을 정할 수 있다.
+        Bicycle myBicycle = new Bicycle("white", 1000);
+        myBicycle.info();
 
-        myBicycle1.info();
+        myBicycle.color = "yellow";
+        myBicycle.info();
     
     }
 
