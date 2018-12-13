@@ -3,6 +3,7 @@ package objMemory;
 public class MainClass {
 
     public static void main(String[] args) {
+
         ObjClass obj1 = new ObjClass();
         ObjClass obj2 = new ObjClass();
         ObjClass obj3 = new ObjClass();
@@ -11,6 +12,15 @@ public class MainClass {
         System.out.println(" obj1 : " + obj1);
         System.out.println(" obj2 : " + obj2);
         System.out.println(" obj3 : " + obj3);
-        
+
+        // 사용자 정의 생성자를 호출한다. (디폴트 생성자와는 다르게 매개변수를 사용한다.)
+
+        int arr[] = {10,20,30};
+        ObjClass obj4 = new ObjClass("Java", arr);
+        ObjClass obj5 = new ObjClass(10, 20);
+
+        // 객체의 속성 출력
+        obj5.getInfo();
+
     }
 }
