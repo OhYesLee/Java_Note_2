@@ -999,3 +999,49 @@ StringBuffer, StringBuilder(속도가 좀 더 빠름)
      - 문자열이 변경되면 기존의 객체를 재활용한다.
      - 속도는 StringBuilder가 조금 더 빠르며, 데이터 안정성은 StringBuffer가 조금 더 좋다.
      - 장기간 동안 데이터가 누적되는 경우 사용한다.
+
+-----------------------------------------------------------------------------------------
+
+Collections
+
+    배열과 같이 자료(데이터)를 효율적으로 관리
+
+* List
+
+    List는 Interface로, 이를 구현한 클래스는 인덱스를 이용해서 관리한다. (데이터가 0, 1, 2, 3, 4 .. 식으로 증가)
+
+    Vector, ArrayList, LinkedList 가 있다. (배열과 비슷한 사용법을 가진다. 주로 ArrayList가 많이 쓰임)
+
+     - ArrayList 객체를 생성할 때는 데이터 타입을 명시해주자.
+        ex) ArrayList<String> list = new ArrayList<String>(); // 문자열인 경우 String 데이터 타입을 명시
+
+            ArrayList객체 안에는 add, get(특정 인덱스 데이터 얻기), remove(특정 인덱스 데이터 제거), 
+            clear(객체 안의 모든 데이터 삭제), isEmpty(데이터 유무에 따른 boolean 값 리턴) 메서드가 있음.
+
+        데이터베이스에서 데이터를 꺼내와서 자바에서 활용을 한다면 ArrayList라던가 각종 데이터를 관리하기 위한 자료형 객체를 사용한다.
+
+    특징
+    
+        인덱스를 이용한다.
+        데이터 중복이 가능하다.
+
+* Map
+
+    Map역시 Interface로 이를 구현한 클래스는 key를 이용해서 데이터를 관리한다.
+
+    HashMap 객체가 있다.
+
+    HashMap 객체의 메소드로는 put(데이터 추가), get(데이터 추출), remove(데이터 제거)
+    containsKey(7) // 특정 데이터 포함 유무 해당 키가 있으면 -> 불린 값 리턴 ,
+    containsValue("world") // 해당 값이 있으면 -> 불린 값 리턴 ,
+    isEmpty(데이터 유무 판단)이 있다.
+
+    ex) HashMap<Integer, String> map = new HashMap<Integer, String>(); // 앞에 있는게 key, 뒤에 있는게 데이터
+
+    특징
+
+        Key를 이용한다.
+        Key는 중복될 수 없다. (유일해야 함)
+        데이터 중복이 가능하다.
+
+------------------------------------------------------------------------------------------
