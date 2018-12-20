@@ -974,7 +974,7 @@ Servlet - java 만을 기반으로 만든 서버사이드 파일
 람다식 구현
 
     람다식은 기본적으로 함수를 만들어 사용한다고 생각하면 된다.
-    인터페이스를 이용하여 함수의 껍데기를 만들고 그 함수를 나중에 인터페이스 데이터 타입의 변수에 원하는 대로 커스텀하여 담아서 사용할 수 있다.
+    인터페이스를 이용하여 함수의 껍데기를 만들어 놓은 후 원하는 대로 익명 함수를 커스텀하여 인터페이스 데이터 타입의 변수에 담아 사용할 수 있다.
     최근부터 유행하기 시작한 트렌드이다. (람다식을 이용하면 코드가 유연해진다. 개발자의 코딩의 양이 줄어든다는 이점이 있다.)
 
 ---------------------------------------------------------------------------------------
@@ -1105,7 +1105,7 @@ throws
 
 ----------------------------------------------
 
-입력과 출력
+입력과 출력 (불러오기 / 내보내기)
 
     데이터를 입력하고 출력하는 방법
 
@@ -1118,8 +1118,10 @@ throws
 
                               stream 연결
 
-    입력(Input) : 파일 읽기, 이미지&동영상 불러오기
-    출력(Output) : 파일 쓰기, 이미지&동영상 내보내기
+    입력 (Input) : 파일 읽기, 이미지&동영상 불러오기
+    출력 (Output) : 파일 쓰기, 이미지&동영상 내보내기
+
+    스트림이라는 기법을 사용한다. ( 입력과 출력의 관계를 맺어준다. )
 
 입/출력 기본클래스
 
@@ -1130,24 +1132,57 @@ throws
 
     - InputStream
 
-        FileInputStream
-        DataInputStream
-        BufferedInputStream
+        FileInputStream ( byte 단위 )
+        DataInputStream ( 문자열 단위 )
+        BufferedInputStream ( 문자열 단위 )
 
     - OutputStream
 
-        FileOutputStream
-        DataOutputStream
-        BufferedOutputStream
+        FileOutputStream ( byte 단위 )
+        DataOutputStream ( 문자열 단위 )
+        BufferedOutputStream ( 문자열 단위 )
 
 
 FileInputStream / FileOutputStream
 
+    * 바이트 단위로 파일을 읽고 쓴다.
+
     파일에 데이터를 읽고/쓰기 위한 클래스로 read(), write() 메서드를 이용한다.
+    1byte 단위로 데이터를 읽어오는 것이 특징이다.
+
+    아스키 코드의 바이트 값을 뽑아내거나 넣을 수 있다.
+
+    read() : 1byte 씩 읽고
+    read(byte[]) : []크기만큼 읽고
+
+    write(byte[] b) 전체 쓰기 (쓰고자 하는것을 배열로 바꿔서 한번에 쓰기)
+    write(byte[], int off, int len) : off(시작점), len(길이)
+
+    * read 메서드와 write 메서드를 기억하자!
+
+    * 네트워크나 읽기쓰기 관련 코드는 예외처리를 반드시 해주어야 한다.
+      안할 경우 컴파일 에러 발생!
 
 파일 복사
 
+    파일 입/출력 클래스를 이용해서 파일을 복사할 수 있다.
+
 DataInputStream, DataOutputStream
 
+    byte 단위의 입출력을 문자열로 개선, 좀 더 편리하게 다룰 수 있다. ( 파일~스트림에서 개선 )
+    byte 단위는 사람이 보이게 불편할 수 있기 때문에 문자열로 개선하는 Data~Stream을 쓴다!
+
 BufferedReader, BufferedWriter
+
+    byte 단위의 입출력을 개선해서 문자열을 좀 더 편리하게 다룰 수 있다.
+
+    입/출력 기본클래스인 InputStream, OutputStream이 byte단위로 입출력이 이루어지는 개념이라면
+    Reader하고 Writer는 문자단위로 이루어지는 것을 알 수 있다.
+
+    DataInputStream / DataOutputStream 과 비슷하다
+
+    * 실무에서는 대부분의 이미지 파일, 텍스트 파일, 동영상 파일 등등
+      byte 단위로 구현되어 있기 때문에 InputStream, OutputStream을 많이 쓴다.
+
+
 
